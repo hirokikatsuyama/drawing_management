@@ -22,6 +22,17 @@
 |name|string|null: false|unique: true|
 ### Association
 -has_many :products
+-belongs_to :user
+
+
+## users table
+|Column|type|Options|
+|------|----|-------|
+|email|string|null: false, unique: true|
+|password|string|null: false, unique: true|
+### Association
+-has_many :clients
+
 
 
 
