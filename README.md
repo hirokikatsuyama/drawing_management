@@ -28,6 +28,7 @@
 ## users table
 |Column|type|Options|
 |------|----|-------|
+|company_name|string|null: false, 
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 ### Association
