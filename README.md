@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version  2.5.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* Services ( search drawing of product )
 
 * Database creation
 
-* Database initialization
+## product table
+|Column|type|Options|
+|------|----|-------|
+|drawing_number|integer|null: false|unique: true|
+|drawing|text|null:false
+|memo|text|
+|image|img|
+### Association
+-belongs_to :client
 
-* How to run the test suite
+## client table
+|Column|type|Options|
+|------|----|-------|
+|name|string|null: false|unique: true|
+### Association
+-has_many :products
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
