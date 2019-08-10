@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     @user = User.find(1)
   end
 
+  def create
+  end
+
   
 
 end
