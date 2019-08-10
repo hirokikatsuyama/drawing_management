@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   def index
-     @product = Product.find(params[:product_id])
   end
 
   def new
