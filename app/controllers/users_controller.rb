@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @user = User.find(1)
+  end
+
+  def new
   end
 
   def create

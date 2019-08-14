@@ -1,0 +1,22 @@
+%header
+  %header__title
+    図面管理アプリ
+  %user__name
+    エイムトータス様
+%body
+  %product
+    %product__title
+      = form_for (@product) do |f|
+        = f.label :図面番号
+        = f.text_field :drawing_number,placeholder: '図面番号'
+        = f.label :図面
+        = f.text_field :image, placeholder: 'ImageURL'
+        = f.label :メモ
+        = f.text_field :memo, placeholder: 'メモを書いてね'
+        = f.label :完成後の写真
+        = f.text_field :finished_product, placeholder: 'ImageURL'
+        = f.label :顧客名
+        = f.text_field :client_name, placeholder: '顧客名を入力してください'
+
+        = button_tag type: 'submit',class: '' do
+          登録する

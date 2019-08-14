@@ -12,6 +12,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.permit(:drawing_number,:drawing,:memo,:finished_product)
+    params.require(:product).permit(:drawing_number,:image,:memo,:finished_product,:client_name)
   end
 end
