@@ -64,3 +64,4 @@ gem "haml-rails", "~> 2.0"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
+gem 'devise'
