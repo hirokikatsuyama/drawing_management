@@ -6,5 +6,23 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    
+    %header
+      .header__bar
+        %h1
+          %a{:href => "/"} 図面管理アプリ
+        - if user_signed_in?
+          %span
+            = current_user.name
+            %ul.user__info
+              %li
+                %a{:href => "#{}"} マイページ
+                = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %a.post{:href => "/products/new"} 投稿する
+
+        - else
+          .grid-6
+          = link_to "ログイン", new_user_session_path, class: 'post'
+          = link_to "新規登録", new_user_registration_path, class: 'post'
+        
+
     = yield
