@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def new
   end
 
+  def show
+    @product = Product.all
+  end
+
   def create
   end
 

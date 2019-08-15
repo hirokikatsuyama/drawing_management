@@ -17,9 +17,9 @@
             = current_user.name
             %ul.user__info
               %li
-                %a{:href => "#{}"} マイページ
+                %a{:href => "/"} マイページ
                 = link_to "ログアウト", destroy_user_session_path, method: :delete
-          %a.post{:href => "/products/new"} 登録する
+          %a.post{:href => "/products/new"} 図面の新規登録をする
 
         - else
           .grid-6
