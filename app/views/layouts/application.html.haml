@@ -5,6 +5,8 @@
     %title 図面管理アプリ
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tag
+
   %body
     %header
       .header__bar
@@ -17,7 +19,7 @@
               %li
                 %a{:href => "#{}"} マイページ
                 = link_to "ログアウト", destroy_user_session_path, method: :delete
-          %a.post{:href => "/products/new"} 投稿する
+          %a.post{:href => "/products/new"} 登録する
 
         - else
           .grid-6
