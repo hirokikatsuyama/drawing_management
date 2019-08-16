@@ -1,17 +1,31 @@
+%script{src: "dropzone.js"}
 %body
-  %product
-    %product__title
-      = form_for (@product) do |f|
-        = f.label :図面番号
-        = f.text_field :drawing_number,placeholder: '図面番号'
-        = f.label :図面
-        = f.text_field :image, placeholder: 'ImageURL'
-        = f.label :メモ
-        = f.text_field :memo, placeholder: 'メモを書いてね'
-        = f.label :完成後の写真
-        = f.text_field :finished_product, placeholder: 'ImageURL'
-        = f.label :顧客名
-        = f.text_field :client_name, placeholder: '顧客名を入力してください'
+  .product
+    .product__container
+      .product__title
+        = form_for (@product) do |f|
+          .product__form
+            .product__number
+            = f.label :図面番号
+            .product__number__form
+            = f.text_field :drawing_number,placeholder: '図面番号'
+            .product__drawing
+            = f.label :図面
+            .product__frawing__form
+            = f.text_field :image, placeholder: 'ImageURL'
+            .product__memo
+            = f.label :メモ
+            .product__memo__form
+            = f.text_field :memo, placeholder: 'メモを書いてね'
+            .product__finishedproduct
+            = f.label :完成後の写真
+            .product__finishedproduct__form
+            = f.text_field :finished_product, placeholder: 'ImageURL'
+            .product__client
+            = f.label :顧客名
+            .product__client__form
+            = f.text_field :client_name, placeholder: '顧客名を入力してください'
+            .product__button
+            = button_tag type: 'submit',class: '' do
+              登録する
 
-        = button_tag type: 'submit',class: '' do
-          登録する

@@ -7,24 +7,31 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tag
 
-  %body
-    %header
-      .header__bar
-        %h1
-          %a{:href => "/"} 図面管理アプリ
-        - if user_signed_in?
-          %span
-            = current_user.name
-            %ul.user__info
-              %li
-                %a{:href => "/"} マイページ
-                = link_to "ログアウト", destroy_user_session_path, method: :delete
-          %a.post{:href => "/products/new"} 図面の新規登録をする
+%body
+  .body__main
+  %header
+    .header__bar
+      .header__center
+        .header__side
+          %h1
+            %a{:href => "/"} TOP
+          - if user_signed_in?
+            .header__side1
+              %span
+                = current_user.name
+                %ul.user__info
+                  %li
+                    .header__mypage
+                      %a{:href => "/"} マイページ
+                    .header__logout
+                      = link_to "ログアウト", destroy_user_session_path, method: :delete
 
-        - else
-          .grid-6
-          = link_to "ログイン", new_user_session_path, class: 'post'
-          = link_to "新規登録", new_user_registration_path, class: 'post'
-        
+          - else
+            .header__side2
+              .header__login
+                = link_to "ログイン", new_user_session_path, class: 'post'
+              .hedaer__new
+                = link_to "新規登録", new_user_registration_path, class: 'post'
+      
 
-    = yield
+  = yield
