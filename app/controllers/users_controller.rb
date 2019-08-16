@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 
   def show
-    @product = Product.find(1)
+    
   end
 
   def create
