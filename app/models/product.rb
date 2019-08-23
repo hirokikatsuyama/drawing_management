@@ -1,3 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to  :users,  optional: true
+  belongs_to  :user,  optional: true
+  has_many :images
+  has_many :finishedproducts
 end

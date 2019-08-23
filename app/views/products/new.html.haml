@@ -1,25 +1,71 @@
+%script{src: "dropzone.js"}
+
 %body
   .product
     .product__container
-      = form_for (@product) do |f|
+      = form_for @product do |f|
         .product__form
-          .product__number#f.label 図面番号
-          .product__number__form
+          #f.label 図面番号
           = f.text_field :drawing_number,placeholder: '図面番号'
-          .product__drawing#f.label 図面
-          .product__frawing__form
-          = f.text_field :image, placeholder: 'ImageURL'
-          .product__memo#f.label メモ
-          .product__memo__form
-          = f.text_field :memo, placeholder: 'メモを書いてね'
-          .product__finishedproduct#f.label 完成後の写真
-          .product__finishedproduct__form
-          = f.text_field :finished_product, placeholder: 'ImageURL'
-          .product__client#f.label 顧客名
-          .product__client__form
-          = f.text_field :client_name, placeholder: '顧客名を入力してください'
-          .product__button
+        .single-main__section__picture
+          %label#large-label 図面
+          .all-gazo
+            .uploader-5#preview
+            .single-main__section__picture__uploader
+              =f.label :drawing_image , id: "files" do
+                =f.file_field :drawing_image, multiple: true, class: "single1", style: "display: none;", onchange: "previewFile()"
+                .single-main__section__picture__uploader__font
+                  %p
+                  ドラッグアンドドロップまたは
+                  %br
+                  クリックしてファイルをアップロード
+        #f.label メモ
+        = f.text_field :memo, placeholder: 'メモを書いてね'
+        #f.label 顧客名
+        = f.text_field :client_name, placeholder: '顧客名を入力してください'
+        .single-main__section__picture
+          %label#large-label 完成写真
+          .all-gazo
+            .uploader-5#preview
+            .single-main__section__picture__uploader
+              =f.label :drawing_image , id: "files" do
+                =f.file_field :drawing_image, multiple: true, class: "single1", style: "display: none;", onchange: "previewFile()"
+                .single-main__section__picture__uploader__font
+                  %p
+                  ドラッグアンドドロップまたは
+                  %br
+                  クリックしてファイルをアップロード
+        .product__button
           = button_tag type: 'submit',class: '' do
             登録する
+
+
+
+
+
+
+
+
+-# %body
+-#   .product
+-#     .product__container
+-#       = form_for @product do |f|
+-#         .product__form
+-#           #f.label 図面番号
+-#           = f.text_field :drawing_number,placeholder: '図面番号'
+-#           #f.label 図面
+-#           = f.file_field @finishproduct do |f|
+-#             = f.file_field :finished_product
+-#           #f.label メモ
+-#           = f.text_field :memo, placeholder: 'メモを書いてね'
+-#           #f.label 顧客名
+-#           = f.text_field :client_name, placeholder: '顧客名を入力してください'
+-#           #f.label 完成後の写真
+-#           = f.file_field @image do |f|
+-#             = f.file_field :drawing_image
+-#         .product__button
+-#           = button_tag type: 'submit',class: '' do
+-#             登録する
+
 
               
