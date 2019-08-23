@@ -1,9 +1,9 @@
 %script{src: "dropzone.js"}
-
+%script{:src => "jquery.js"}
 %body
   .product
     .product__container
-      = form_for @product do |f|
+      = form_for @product, html: {class:'dropzone', id: "item-dropzone"} do |f|
         .product__form
           #f.label 図面番号
           = f.text_field :drawing_number,placeholder: '図面番号'
@@ -13,7 +13,7 @@
             .uploader-5#preview
             .single-main__section__picture__uploader
               =f.label :drawing_image , id: "files" do
-                =f.file_field :drawing_image, multiple: true, class: "single1", style: "display: none;", onchange: "previewFile()"
+                =f.file_field :drawing_image, multiple: true, class: "dz-message needsclick", style: "display: none;", onchange: "previewFile()"
                 .single-main__section__picture__uploader__font
                   %p
                   ドラッグアンドドロップまたは
@@ -29,7 +29,7 @@
             .uploader-5#preview
             .single-main__section__picture__uploader
               =f.label :drawing_image , id: "files" do
-                =f.file_field :drawing_image, multiple: true, class: "single1", style: "display: none;", onchange: "previewFile()"
+                =f.file_field :drawing_image, multiple: true, class: "dz-message needsclick", style: "display: none;", onchange: "previewFile()"
                 .single-main__section__picture__uploader__font
                   %p
                   ドラッグアンドドロップまたは

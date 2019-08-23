@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
 
   def create
     Product.create(drawing_number: product_params[:drawing_number],drawing_image: product_params[:drawing_image],memo: product_params[:memo], client_name: product_params[:client_name],users_id: current_user.id,images_id:product_params[:images_attributes])
-  binding.pry
   end
 
   private
