@@ -3,9 +3,11 @@ class FinshedproductController < ApplicationController
   end
 
   def new
-    @finishproduct = Finishproduct.new
+    @finishedproduct = Finishedproduct.new
   end
 
   def create
   end
+
+
 end

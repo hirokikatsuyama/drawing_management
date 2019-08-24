@@ -3,69 +3,32 @@
 %body
   .product
     .product__container
-      = form_for @product, html: {class:'dropzone', id: "item-dropzone"} do |f|
+      = form_for @product do |f|
         .product__form
-          #f.label 図面番号
-          = f.text_field :drawing_number,placeholder: '図面番号'
-        .single-main__section__picture
-          %label#large-label 図面
-          .all-gazo
-            .uploader-5#preview
-            .single-main__section__picture__uploader
-              =f.label :drawing_image , id: "files" do
-                =f.file_field :drawing_image, multiple: true, class: "dz-message needsclick", style: "display: none;", onchange: "previewFile()"
-                .single-main__section__picture__uploader__font
-                  %p
-                  ドラッグアンドドロップまたは
-                  %br
-                  クリックしてファイルをアップロード
+        #f.label 図面番号
+        = f.text_field :drawing_number,placeholder: '図面番号'
+        #f.label 図面
+        .uploader-5#preview
+          =f.label :drawing_image , id: "files" do
+            =f.file_field :drawing_image, multiple: true, class: "", style: "display: none;", onchange: "previewFile()"
+            .my-awesome-dropzone.dropzone{:action => "/file-upload"}
+              %p
+              ドラッグアンドドロップまたは
+              %br
+              クリックしてファイルをアップロード
         #f.label メモ
         = f.text_field :memo, placeholder: 'メモを書いてね'
         #f.label 顧客名
         = f.text_field :client_name, placeholder: '顧客名を入力してください'
-        .single-main__section__picture
-          %label#large-label 完成写真
-          .all-gazo
-            .uploader-5#preview
-            .single-main__section__picture__uploader
-              =f.label :drawing_image , id: "files" do
-                =f.file_field :drawing_image, multiple: true, class: "dz-message needsclick", style: "display: none;", onchange: "previewFile()"
-                .single-main__section__picture__uploader__font
-                  %p
-                  ドラッグアンドドロップまたは
-                  %br
-                  クリックしてファイルをアップロード
+        #f.label 完成写真
+        .uploader-5#preview
+          =f.label :finished_product , id: "files" do
+            =f.file_field :finished_product, multiple: true, class: "", style: "display: none;", onchange: "previewFile()"
+            .my-awesome-dropzone.dropzone{:action => "/file-upload"}
+              %p
+              ドラッグアンドドロップまたは
+              %br
+              クリックしてファイルをアップロード
         .product__button
           = button_tag type: 'submit',class: '' do
             登録する
-
-
-
-
-
-
-
-
--# %body
--#   .product
--#     .product__container
--#       = form_for @product do |f|
--#         .product__form
--#           #f.label 図面番号
--#           = f.text_field :drawing_number,placeholder: '図面番号'
--#           #f.label 図面
--#           = f.file_field @finishproduct do |f|
--#             = f.file_field :finished_product
--#           #f.label メモ
--#           = f.text_field :memo, placeholder: 'メモを書いてね'
--#           #f.label 顧客名
--#           = f.text_field :client_name, placeholder: '顧客名を入力してください'
--#           #f.label 完成後の写真
--#           = f.file_field @image do |f|
--#             = f.file_field :drawing_image
--#         .product__button
--#           = button_tag type: 'submit',class: '' do
--#             登録する
-
-
-              
